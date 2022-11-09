@@ -20,16 +20,16 @@ namespace DesafioFundamentos.Models
             var nome = Console.ReadLine();
             var modelo = Console.ReadLine();
             var código = Console.ReadLine();
-            veiculos.Add("Veículo modelo {modelo}, de placa {placa}, dono {nome}, id pra resgate de {código}");
-
+            veiculos.Add(modelo + nome + código + placa);
+           
         }
 
         public void RemoverVeiculo()
         {
-            Console.WriteLine("Digite o seu código de resgate do veículo para remover:");
+            
 
             Console.WriteLine("Por favor, para remover o veículo, digite o id de resgate");
-            var código = "";
+            var código = Console.ReadLine();
 
             // Verifica se o veículo existe
             if (veiculos.Any(x => x.ToUpper() == código.ToUpper()))
@@ -37,7 +37,6 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
                 
-                Console.WriteLine("Diga a quantidade de horas que o veículo permaneceu estacionado");
                 int horas = int.Parse(Console.ReadLine());
                 decimal valorTotal = (precoInicial + precoPorHora) * horas; 
                 
@@ -60,7 +59,9 @@ namespace DesafioFundamentos.Models
               
                 foreach (string veiculo in veiculos)
                 {
+                    
                     Console.WriteLine(veiculo);
+                    
                 }
             }
             else
@@ -70,4 +71,3 @@ namespace DesafioFundamentos.Models
         }
     }
 }
-
