@@ -9,7 +9,7 @@ namespace DesafioFundamentos.Models
         public string modelo;
         public string nome;
         public string codigo;
-
+        public int contador = 0;
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
             this.precoInicial = precoInicial;
@@ -18,7 +18,6 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
-          if (veiculos.Count() < 12){ 
             Console.WriteLine("Digite a placa do veículo, o nome do dono, o modelo do carro e codigo do cliente para estacionar:");
               placa = Console.ReadLine();
               nome = Console.ReadLine();
@@ -28,11 +27,7 @@ namespace DesafioFundamentos.Models
             veiculos.Add(nome);
             veiculos.Add(codigo);
             veiculos.Add(placa);
-           }
-          else
-            Console.WriteLine("O estacionamento está lotado");
         }
-
         public void RemoverVeiculo()
         {
             
@@ -67,33 +62,22 @@ namespace DesafioFundamentos.Models
         }
 
         public void ListarVeiculos()
-        {
-            // Verifica se há veículos no estacionamento
+        {           
             if (veiculos.Any())
             {
-               
-                
-                Console.WriteLine("Os veículos estacionados são:");
-                Console.WriteLine(veiculos[0]);
-                Console.WriteLine(veiculos[1]);
-                Console.WriteLine(veiculos[2]);
-                Console.WriteLine(veiculos[3]);
-                Console.WriteLine("");
-                Console.WriteLine(veiculos[4]);
-                Console.WriteLine(veiculos[5]);
-                Console.WriteLine(veiculos[6]);
-                Console.WriteLine(veiculos[7]);
-                Console.WriteLine("");
-                Console.WriteLine(veiculos[8]);
-                Console.WriteLine(veiculos[9]);
-                Console.WriteLine(veiculos[10]);
-                Console.WriteLine(veiculos[11]);
 
-
-                
+                foreach (string veiculo in veiculos)
+                {
+                    
+                    Console.WriteLine(veiculo);
+                    contador = contador + 1; 
+                         if (contador == 4){ 
+                          Console.WriteLine("");
+                          contador = 0;
+                        }
                          
-
-                
+                        }
+    
             }
             else
             {
